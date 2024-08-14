@@ -10,6 +10,7 @@ import {HttpClient} from "@angular/common/http";
   ],
   templateUrl: './captcha.component.html',
   styleUrl: './captcha.component.scss'
+
 })
 export class CaptchaComponent {
   random = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
