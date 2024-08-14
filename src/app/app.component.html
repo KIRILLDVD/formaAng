@@ -54,13 +54,13 @@
     >
       <small *ngIf="form.get('message').errors.required">Поле сообщения не может быть пустым</small>
     </div>
-    <div class="form-control" >
-      <label>Цифры:</label>
-      <input class="numb" type="text" maxlength="4" id="cap" [(ngModel)]="enter" (change)="check()" [class.is-valid]="!form.controls.captcha.errors" [class.is-invalid]="form.controls.captcha.hasError('incorrect')" formControlName="captcha">
-      <div class="numbers">{{random}}</div>
-      <button (click)="genRandom()">NEW</button>
-    </div>
-
+<!--    <div class="form-control" >-->
+<!--      <label>Цифры:</label>-->
+<!--      <input class="numb" type="text" maxlength="4" id="cap" [(ngModel)]="enter" (change)="check()" [class.is-valid]="!form.controls.captcha.errors" [class.is-invalid]="form.controls.captcha.hasError('incorrect')" formControlName="captcha">-->
+<!--      <div class="numbers">{{random}}</div>-->
+<!--      <button (click)="genRandom()">NEW</button>-->
+<!--    </div>-->
+    <app-captcha></app-captcha>
     <button class="btn" type="submit" [disabled]="form.invalid">Отправить</button>
 
   </form>

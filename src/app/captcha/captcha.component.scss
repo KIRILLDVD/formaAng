@@ -1,0 +1,28 @@
+.form-control{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0px;
+}
+label{
+  flex: 1;
+  margin: auto;
+}
+input {
+  margin-bottom: 2px;
+  width: 220px;
+  height: 20px;
+
+}
+small{
+  display:flex ;
+  justify-content: flex-end;
+  color: red;
+}
+.numb{
+  width: 100px;
+  margin-right: 35px;
+}
+.numbers{
+  margin-top: 5px;
+  margin-right: 5px;
+}
