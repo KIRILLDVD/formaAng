@@ -12,7 +12,7 @@ export class HttpMethodService {
     console.log('Formx: ', form)
     const formData = {...form.value}
     console.log('Formx Data:', formData)
-    this.http.post('http://localhost/ang/employee.php', form.value).subscribe(response => {
+    this.http.post('http://localhost/newexamp2/employee.php', form.value).subscribe(response => {
       console.log(response)
     })
     form.reset();

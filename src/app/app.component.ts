@@ -18,8 +18,6 @@ import {CaptchaComponent} from "./captcha/captcha.component";
 })
 export class AppComponent implements OnInit {
   form: FormGroup | any
-  // random = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
-  // enter: number | undefined
   constructor(private http: HttpClient, private httpservice: HttpMethodService) {
   }
   ngOnInit() {
@@ -29,7 +27,6 @@ export class AppComponent implements OnInit {
       message: new FormControl('', Validators.required),
       selector: new FormControl('Техподдержка',),
       phone: new FormControl('', [Validators.pattern(/\d{0}8\d{10}$/), Validators.required])
-      // captcha: new FormControl('', [Validators.required, Validators.minLength(4)])
     })
   }
   submit() {
@@ -37,18 +34,7 @@ export class AppComponent implements OnInit {
       this.httpservice.send(this.form)
     }
   }
-  // genRandom() {
-  //   const min = 1000;
-  //   const max = 9999;
-  //
-  //   this.random = Math.floor(Math.random() * (max - min + 1)) + min;
-  // }
-
-  // check() {
-  //   if (this.enter == this.random) {
-  //     this.form.controls.captcha.setErrors(null)
-  //   } else {
-  //     this.form.controls.captcha.setErrors({ incorrect: true})
-  //   }
-  // }
+  openBlankTab() {
+    window.open('http://localhost/newexamp2/base.php');
+  }
 }

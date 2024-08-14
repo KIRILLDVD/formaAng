@@ -1,6 +1,7 @@
 <div class="form-control" >
   <label>Цифры:</label>
-  <input class="numb" type="text" maxlength="4" id="ccap" [(ngModel)]="enter" (ngModelChange)="onInp($event)" (change)="check()">
+  <input class="numb" type="text" maxlength="4" id="ccap" [(ngModel)]="enter" (ngModelChange)="onInp($event)">
   <div class="numbers">{{random}}</div>
   <button (click)="genRandom()">NEW</button>
 </div>
+<button [disabled]="!validC" >dsadsadasdasd</button>
