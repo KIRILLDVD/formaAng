@@ -1,10 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, DoCheck,  OnInit} from '@angular/core';
 import {RouterLink, RouterOutlet} from '@angular/router';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {HttpMethodService} from "./service/http-method.service";
 import {CaptchaComponent} from "./captcha/captcha.component";
+
+
 
 
 
@@ -14,11 +16,13 @@ import {CaptchaComponent} from "./captcha/captcha.component";
   imports: [RouterOutlet, NgForOf, HttpClientModule, FormsModule, NgIf, ReactiveFormsModule, NgClass, CaptchaComponent, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [HttpMethodService]
+  providers: [HttpMethodService,CaptchaComponent]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, DoCheck {
   form: FormGroup | any
-  constructor(private http: HttpClient, private httpservice: HttpMethodService) {
+  static numb: number;
+  nur: boolean | undefined
+  constructor(private httpservice: HttpMethodService,private cap:CaptchaComponent) {
   }
   ngOnInit() {
     this.form = new FormGroup({
@@ -34,7 +38,18 @@ export class AppComponent implements OnInit {
       this.httpservice.send(this.form)
     }
   }
-  openBlankTab() {
+  openBlankTab() { setTimeout(()=>{
     window.open('http://localhost/newexamp2/base.php');
+  },1000)
+  }
+
+  ngDoCheck(): void {
+    if(this.form.valid && AppComponent.numb==1){
+      this.nur = true
+      console.log("allgood")
+    }
+    else {
+      this.nur=false
+    }
   }
 }

@@ -4,4 +4,4 @@
   <div class="numbers">{{random}}</div>
   <button (click)="genRandom()">NEW</button>
 </div>
-<button [disabled]="!validC" >dsadsadasdasd</button>
+<small *ngIf="AppComponent.numb==2">Неверно введена капча</small>

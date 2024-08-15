@@ -26,7 +26,7 @@
 
     <div class="form-control">
       <label>Ваш телефон</label>
-      <input type="number" placeholder="Телефон" formControlName="phone">
+      <input type="number" placeholder="Телефон" formControlName="phone" >
     </div>
 
     <div
@@ -55,8 +55,8 @@
       <small *ngIf="form.get('message').errors.required">Поле сообщения не может быть пустым</small>
     </div>
     <app-captcha></app-captcha>
-    <button class="btn" type="submit" [disabled]="form.invalid">Отправить</button>
-    <button (click)="openBlankTab()">Открыть новую вкладку</button>
+    <button class="btn" type="submit" [disabled]="!nur" (click)="openBlankTab()">Отправить</button>
     <ng-template></ng-template>
   </form>
 </div>
+
