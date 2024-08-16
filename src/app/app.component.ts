@@ -40,6 +40,7 @@ export class AppComponent implements OnInit, DoCheck {
   }
   openBlankTab() { setTimeout(()=>{
     window.open('http://localhost/newexamp2/base.php');
+    window.location.reload()
   },1000)
   }
 
