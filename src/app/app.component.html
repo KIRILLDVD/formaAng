@@ -55,8 +55,23 @@
       <small *ngIf="form.get('message').errors.required">Поле сообщения не может быть пустым</small>
     </div>
     <app-captcha></app-captcha>
-    <button class="btn" type="submit" [disabled]="!nur" (click)="openBlankTab()">Отправить</button>
+    <button class="btn" type="submit" [disabled]="!nur" (click)="openBlankTab()" >Отправить</button>
     <ng-template></ng-template>
   </form>
 </div>
+<table>
+  <tr *ngFor="let mydata of this.httpservice.det[0]">
+    <th>{{mydata.name}}</th>
+    <td>{{mydata.email}}</td>
+    <th>{{mydata.phone}}</th>
+    <td>{{mydata.message}}</td>
+    <th>{{mydata.selectr}}</th>
+  </tr>
+</table>
 
+
+<button (click)="fff()">()()()()()</button>
+<button (click)="doSomething()">===</button>
+<button (click)="ddt()">+++</button>
+<button (click)="Tsk1()">TSK1</button>
+<button (click)="Tsk2()">TSK2</button>

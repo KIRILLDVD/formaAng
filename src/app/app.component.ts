@@ -1,10 +1,11 @@
 import {Component, DoCheck,  OnInit} from '@angular/core';
 import {RouterLink, RouterOutlet} from '@angular/router';
-import {HttpClientModule} from "@angular/common/http";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {HttpMethodService} from "./service/http-method.service";
 import {CaptchaComponent} from "./captcha/captcha.component";
+import {HttpClientModule} from "@angular/common/http";
+
 
 
 
@@ -13,7 +14,7 @@ import {CaptchaComponent} from "./captcha/captcha.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, HttpClientModule, FormsModule, NgIf, ReactiveFormsModule, NgClass, CaptchaComponent, RouterLink],
+  imports: [RouterOutlet, NgForOf,HttpClientModule, FormsModule, NgIf, ReactiveFormsModule, NgClass, CaptchaComponent, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   providers: [HttpMethodService,CaptchaComponent]
@@ -22,7 +23,7 @@ export class AppComponent implements OnInit, DoCheck {
   form: FormGroup | any
   static numb: number;
   nur: boolean | undefined
-  constructor(private httpservice: HttpMethodService,private cap:CaptchaComponent) {
+  constructor(protected httpservice: HttpMethodService) {
   }
   ngOnInit() {
     this.form = new FormGroup({
@@ -40,6 +41,7 @@ export class AppComponent implements OnInit, DoCheck {
   }
   openBlankTab() { setTimeout(()=>{
     window.open('http://localhost/newexamp2/base.php');
+    window.location.reload();
   },1000)
   }
 
@@ -51,5 +53,45 @@ export class AppComponent implements OnInit, DoCheck {
     else {
       this.nur=false
     }
+  }
+  async doSomething() {
+    try {
+      const promis1 = new Promise((resolve, reject) => {
+        setTimeout(() => resolve('It good'), 1000)
+      })
+      const promis2 = new Promise((resolve, reject) => {
+        setTimeout(() => reject('2good'), 2000)
+      })
+      await promis1
+      await promis2
+      console.log('200')
+    }catch (error){
+      console.error(error)
+    }
+  }
+  async ddt(){
+    try{
+      const task1 = await this.Tsk1()
+      const task2 = await this.Tsk2()
+      console.log(`ALL:${task1}`)
+      console.log(`ALL:${task2}`)
+    } catch (error){
+      console.error(error)
+    }
+  }
+  async Tsk1(){
+    return new  Promise((resolve, reject)=>{
+      setTimeout(()=> resolve('good1'),1000)
+      console.log(resolve)
+    })
+  }
+  async Tsk2(){
+    return new  Promise((resolve, reject)=>{
+      setTimeout(()=> resolve('good2'),2000)
+    })
+  }
+
+  fff() {
+    this.httpservice.metod()
   }
 }

@@ -17,4 +17,10 @@ export class HttpMethodService {
     })
     form.reset();
   }
+  det: any =[]
+  metod() {
+    this.http.get('http://localhost/newexamp2/getb.php').subscribe((response ) => {
+        this.det.push(response)
+    });
+  }
 }

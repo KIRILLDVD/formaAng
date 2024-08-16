@@ -7,13 +7,13 @@
 <body>
 <h2>Последние внесенные данные</h2>
 <?php
-        $pdo = new PDO('mysql:host=localhost;dbname=test1', 'root', '0000');
+        $pdo = new PDO('mysql:host=localhost;dbname=test1', 'root', '');
         $query = "SELECT c.email, c.name, c.phone, m.message,s.selectr
         FROM contacts AS c
         INNER JOIN messages AS m ON c.id = m.id_contact
         INNER JOIN selector AS s ON c.id = s.id_contact
         ORDER BY s.id DESC, m.id DESC LIMIT 1";
-       
+
         try {
             $stmt = $pdo->query($query);
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

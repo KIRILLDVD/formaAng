@@ -1,14 +1,14 @@
 <?php
-header('Access-Control-Allow-Origin: *'); 
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS'); 
-header('Access-Control-Max-Age: 3600'); 
-header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept, Origin, Authorization'); 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+header('Access-Control-Max-Age: 3600');
+header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept, Origin, Authorization');
 
 
 
 
 
-$conn = new mysqli('localhost', 'root', '0000', 'test1');
+$conn = new mysqli('localhost', 'root', '', 'test1');
 
 if ($conn->connect_error) {
     die("Ошибка соединения с базой данных: " . $conn->connect_error);
