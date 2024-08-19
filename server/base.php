@@ -7,7 +7,7 @@
 <body>
 <h2>Последние внесенные данные</h2>
 <?php
-        $pdo = new PDO('mysql:host=localhost;dbname=test1', 'root', '0000');
+        $pdo = new PDO('mysql:host=localhost;dbname=test1', 'root', '');
         $query = "SELECT c.email, c.name, c.phone, m.message,s.selectr
         FROM contacts AS c
         INNER JOIN messages AS m ON c.id = m.id_contact
@@ -25,6 +25,10 @@
                 // echo "<td>" . $row["name"] . "</td>";
                 // echo "<td>" . $row["phone"] . "</td>";
             }
+            echo "<br/>";
+            print_r($result);
+            echo "<br/>";echo "<br/>";
+            echo json_encode ($result);
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }

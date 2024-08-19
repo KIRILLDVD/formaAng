@@ -8,7 +8,7 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept, Or
 
 
 
-$conn = new mysqli('localhost', 'root', '0000', 'test1');
+$conn = new mysqli('localhost', 'root', '', 'test1');
 
 if ($conn->connect_error) {
     die("Ошибка соединения с базой данных: " . $conn->connect_error);

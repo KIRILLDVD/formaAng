@@ -16,6 +16,9 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST"){
     }
     else{echo json_encode(['status' => '2']);}
 }
-
+if (isset($_GET) and $_SERVER["REQUEST_METHOD"]=="GET"){
+    $randomNumber = rand(1000,9999);
+    echo $randomNumber;
+}
 
 ?>
