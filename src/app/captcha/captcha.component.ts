@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
 import {AppComponent} from "../app.component";
 import {NgIf} from "@angular/common";
+import {HttpMethodService} from "../service/http-method.service";
 
 @Component({
   selector: 'app-captcha',
@@ -15,36 +15,16 @@ import {NgIf} from "@angular/common";
   styleUrl: './captcha.component.scss'
 })
 export class CaptchaComponent {
-  random = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
   enter: number | undefined
-  data:any=[];
-  validC: boolean | undefined
-  constructor(private http:HttpClient) {
+  constructor(protected htppservice: HttpMethodService) {
   }
   onInp(value:string){
     if(value.length===4){
-      this.http.post('http://localhost/newexamp2/captch.php',JSON.stringify({value: value,da:this.random})).subscribe(response => {
-        this.data.push(response)
-        if(this.data[0].status === '1'){
-          this.validC=true
-          this.AppComponent.numb=1
-          console.log(this.validC)
-        }
-        else {
-          this.validC=false
-          this.AppComponent.numb=2
-          console.log(this.validC)
-        }
-        this.data.splice(0, this.data.length)
-      })
+        this.htppservice.postCaptcha(value)
     }
     else{
       this.AppComponent.numb=3
     }
-  }
-
-  genRandom() {
-    this.random = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
   }
   protected readonly AppComponent = AppComponent;
 }

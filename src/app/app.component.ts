@@ -22,7 +22,7 @@ export class AppComponent implements OnInit, DoCheck {
   form: FormGroup | any
   static numb: number;
   nur: boolean | undefined
-  constructor(private httpservice: HttpMethodService,private cap:CaptchaComponent) {
+  constructor(protected httpservice: HttpMethodService, private cap:CaptchaComponent) {
   }
   ngOnInit() {
     this.form = new FormGroup({

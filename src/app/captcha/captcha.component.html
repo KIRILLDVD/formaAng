@@ -1,7 +1,7 @@
 <div class="form-control" >
   <label>Цифры:</label>
   <input class="numb" type="text" maxlength="4" id="ccap" [(ngModel)]="enter" (ngModelChange)="onInp($event)">
-  <div class="numbers">{{random}}</div>
-  <button (click)="genRandom()">NEW</button>
+  <div class="numbers">{{htppservice.randomNuber}}</div>
+  <button (click)="htppservice.captchaNumber()">NEW</button>
 </div>
 <small *ngIf="AppComponent.numb==2">Неверно введена капча</small>
