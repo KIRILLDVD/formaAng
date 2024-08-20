@@ -1,7 +1,12 @@
 
 h1{
-  background-color:#ff0b00 ;
+  background-color:firebrick ;
   color: white ;
+  position: relative;
+  right: 34px;
+  margin-block-start: auto;
+  text-align: right;
+  padding-right: 100px;
 }
 .container{
   background-color: #fff;
@@ -24,39 +29,50 @@ label{
   margin: auto;
 }
 select{
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   float: right;
-  width: 228px;
+  width: 226px;
+  border-radius: 5px ;
+  border: 1px solid;
 }
 input {
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   width: 220px;
   height: 20px;
+  border-radius: 5px ;
+  border: 1px solid;
+  text-indent: 15px;
   &.ng-invalid.ng-touched {
-    border: 2px solid red;
+    border: 1px solid red;
   }
   &.ng-valid.ng-touched {
-    border: 2px solid green;
+    border: 1px solid green;
+    background-color: rgb(232,240,254);
   }
 }
 textarea{
-  margin-bottom: 2px;
-  width: 222px;
+  margin-bottom: 5px;
+  width: 220px;
   resize: none;
+  border-radius: 5px ;
+  border: 1px solid;
+
   &.ng-invalid.ng-touched {
-    border: 2px solid red;
+    border: 1px solid red;
   }
   &.ng-valid.ng-touched {
-    border: 2px solid green;
+    border: 1px solid green;
+    background-color: rgb(232,240,254);
   }
 }
 .btn{
-  margin:0 auto;
+  margin:0px 123px;
   display: flex;
   margin-top: 10px;
-  width: 100px;
-  height: 30px;
-  font-size: 17px;
+  width: 150px;
+  height: 25px;
+  font-size: 15px;
+  border-radius: 5px;
 }
 small{
   display:flex ;
@@ -71,3 +87,25 @@ small{
   margin-top: 5px;
   margin-right: 5px;
 }
+.triangl1{
+  width: 0;
+  height: 0;
+  border-top: 37px solid firebrick;
+  border-right: 14px solid transparent;
+  position: absolute;
+  left: 350px;
+}
+.triangl{
+  width: 0;
+  height: 0;
+  border-top: 14px solid #791313;
+  border-left: 14px solid transparent;
+  position: absolute;
+}
+
+.bx-user:before, .bx-envelope:before, .bx-mobile:before {
+  position: absolute;
+  margin-top: 4px;
+  margin-left: 2px;
+}
+

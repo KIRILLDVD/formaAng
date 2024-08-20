@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {AppComponent} from "../app.component";
 
@@ -6,12 +6,11 @@ import {AppComponent} from "../app.component";
 @Injectable({
   providedIn: 'root'
 })
-export class HttpMethodService {
+export class HttpMethodService{
   randomNuber: number | any;
   data:any=[];
   validC: boolean | undefined;
   constructor(private http: HttpClient) { }
-
   send(form: any) {
     try {
       console.log('Formx: ', form)
