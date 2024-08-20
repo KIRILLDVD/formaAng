@@ -33,11 +33,6 @@ export class AppComponent implements OnInit, DoCheck {
       phone: new FormControl('', [Validators.pattern(/\d{0}8\d{10}$/), Validators.required])
     })
   }
-  submit() {
-    if (this.form.valid) {
-      this.httpservice.send(this.form)
-    }
-  }
   openBlankTab() { setTimeout(()=>{
     window.open('http://localhost/newexamp2/base.php');
     window.location.reload()
@@ -51,6 +46,12 @@ export class AppComponent implements OnInit, DoCheck {
     }
     else {
       this.nur=false
+    }
+  }
+
+  subm() {
+    if (this.form.valid) {
+      this.httpservice.send(this.form)
     }
   }
 }

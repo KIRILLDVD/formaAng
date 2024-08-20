@@ -2,7 +2,7 @@
 
 <div class="container">
   <h1>Напишите нам</h1>
-  <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+  <form class="card" [formGroup]="form" >
 
     <div class="form-control">
       <label>Ваше имя:</label>
@@ -55,7 +55,7 @@
       <small *ngIf="form.get('message').errors.required">Поле сообщения не может быть пустым</small>
     </div>
     <app-captcha></app-captcha>
-    <button class="btn" type="submit" [disabled]="!nur" (click)="openBlankTab()">Отправить</button>
+    <button class="btn" type="submit" [disabled]="!nur" (click)="openBlankTab();subm()">Отправить</button>
     <ng-template></ng-template>
   </form>
 </div>
